@@ -19,6 +19,7 @@ This file contains essentially all of the process and message handling. Together
 - Line 238: Initialized random number generator for `proc.c`
 - Line 280-284: Modified startup banner with custom message 
 ### proc.c
+- Line 1313: Added check for processes with priority 4 or higher
 - Line 1314: Modified `rand()` for specified range using the following formula: `rand() % (MAX + 1 - MIN) + MIN`
 ## Testing
 To test my solution, I compared the time it took for a clean Minix image to reboot (~5.6s real time) and compared it to an image with the modifications added. Times were recorded using a mobile stopwatch app.
