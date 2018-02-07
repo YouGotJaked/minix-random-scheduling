@@ -16,7 +16,6 @@
 #include <minix/com.h>
 #include <minix/endpoint.h>
 #include <minix/u64.h>
-#include <time.h>
 #include "proc.h"
 #include "debug.h"
 #include "clock.h"
@@ -236,7 +235,7 @@ PUBLIC void main(void)
    */
   bill_ptr = proc_addr(IDLE);	/* it has to point somewhere */
   announce();				/* print MINIX startup banner */
-  srand((unsigned) time(&t));
+  srand(777);
 
   /*
    * enable timer interrupts and clock task on the boot CPU
@@ -283,7 +282,6 @@ PRIVATE void announce(void)
          "######   #        #     #\n"
          "     #   #        #     #\n"
          "######   ######   #######\n");
-  
 }
 
 /*===========================================================================*
