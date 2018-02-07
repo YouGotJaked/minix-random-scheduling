@@ -15,6 +15,7 @@ This file contains essentially all of the process and message handling. Together
 
 ### main.c
 - Line 19: Added `<time.h>` header file
+- Line 42: Added `time_t` variable
 - Line 238: Initialized random number generator for `proc.c`
 - Line 280-284: Modified startup banner with custom message 
 ### proc.c
