@@ -16,6 +16,7 @@
 #include <minix/com.h>
 #include <minix/endpoint.h>
 #include <minix/u64.h>
+#include <time.h>
 #include "proc.h"
 #include "debug.h"
 #include "clock.h"
@@ -38,6 +39,7 @@ PUBLIC void main(void)
   vir_clicks text_clicks, data_clicks, st_clicks;
   reg_t ktsb;			/* kernel task stack base */
   struct exec e_hdr;		/* for a copy of an a.out header */
+  time_t t;
 
    /* Global value to test segment sanity. */
    magictest = MAGICTEST;
@@ -234,6 +236,7 @@ PUBLIC void main(void)
    */
   bill_ptr = proc_addr(IDLE);	/* it has to point somewhere */
   announce();				/* print MINIX startup banner */
+  srand((unsigned) time(&t));
 
   /*
    * enable timer interrupts and clock task on the boot CPU

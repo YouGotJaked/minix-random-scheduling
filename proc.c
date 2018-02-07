@@ -1310,7 +1310,7 @@ PRIVATE struct proc * pick_proc(void)
      * The lowest queue contains IDLE, which is always ready.
      */
     for (q=0; q < NR_SCHED_QUEUES; q++) {
-        if (q > 3 && rand() % 100 < (100/(NR_SCHED_QUEUES+1)) * q) {
+        if (q >= 4 && decrease_prob(q,NR_SCHED_QUEUES)) {
             q = rand() % (NR_SCHED_QUEUES-3) + 4;
         }
         if(!(rp = rdy_head[q])) {
@@ -1329,6 +1329,10 @@ PRIVATE struct proc * pick_proc(void)
         return rp;
     }
     return NULL;
+}
+
+PRIVATE bool decrease_prob(int i, int max) {
+    return rand() % 100 < (100/(max+1)) * i;
 }
 
 /*===========================================================================*
