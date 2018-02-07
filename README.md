@@ -21,3 +21,6 @@ This file contains essentially all of the process and message handling. Together
 ### proc.c
 - Line 1314: Modified `rand()` for specified range using the following formula: `rand() % (MAX + 1 - MIN) + MIN`
 ## Testing
+To test my solution, I compared the time it took for a clean Minix image to reboot (~5.6s real time) and compared it to an image with the modifications added. Times were recorded using a mobile stopwatch app.
+
+To further test the implementation of my solution, I could utilize the `fork()` system call from the previous lab. Using Minix's standard priority queue, PIDs should be printed in consecutive order. However, implementing the randomized priority queue should result in a random distribution of PIDs.
